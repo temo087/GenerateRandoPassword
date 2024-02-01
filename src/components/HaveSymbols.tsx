@@ -16,7 +16,7 @@ type SymbolProps = {
         className="mr-2"
         onChange={handleHaveSymbolChange}
         />
-        <label className="xl:text-[25px] font-fontFamily" htmlFor="HaveSymbols">
+        <label className="xl:text-[25px]  font-fontFamily" htmlFor="HaveSymbols">
             Include Symbol Letters
         </label>
     </div>

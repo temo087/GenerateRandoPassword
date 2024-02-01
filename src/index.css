@@ -5,17 +5,7 @@
 body{
     transition: 1s;
 }
-@layer base {
-    input[type='checkbox']{
-        @apply accent-[#A4FFAF];
-    }
-    @media(width >= 1280px){
-        input[type='checkbox']{
-            width: 20px;
-            height: 20px;
-        }
-    }
-}
+
 
 
 input[type='range']::-webkit-slider-thumb{

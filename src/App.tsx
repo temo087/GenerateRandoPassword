@@ -15,6 +15,7 @@ function App() {
   const [haveLowerCase, setHaveLowerCase] = useState<boolean>(true);
   const [haveNumbers, setHaveNumbers] = useState<boolean>(true);
   const [haveUpperCase, setHaveUpperCase] = useState<boolean>(true);
+  const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const [passwordStrength, setPasswordStrength] = useState<string | null>("Generated Password");
 
   function evaluatePasswordStrength(password:string) {
@@ -59,19 +60,55 @@ function App() {
 
   return (
     <>
-
-        <div>
-          <h1  id="passwordStrengthTitle">{passwordStrength}</h1>
+      <div
+        onPointerMove={(e) => {
+          setPosition({ x: e.clientX, y: e.clientY });
+        }}
+        className='gela'
+        style={{ position: 'relative' }} 
+      >
+        <div
+          className="
+            font-fontfamily
+            items-center
+            flex
+            flex-col
+            justify-center
+            min-h-screen
+            gap-4
+            bg-black 
+            text-white"
+        >
+          <h1 className="xl:text-[40px] font-fontFamily" id="passwordStrengthTitle">{passwordStrength}</h1>
           {password && 
             <div 
- 
+              className="
+                bg-[#18171F]
+                text-white
+                px-4 py-2
+                break-all
+                flex
+                justify-between
+                items-center
+                w-[320px]
+                mb-4
+                xl:w-[600px]
+                xl:h-[50px]"
             >
               <div className="text-xl">{password}</div>
               <button className="text-xl" onClick={handleCopy}><AiOutlineCopy/></button>
             </div>
           }
           <div
-          
+            className="
+              dark:bg-white
+              w-[320px]
+              bg-[#24232C]
+              dark:bg-#A4FFAF]
+              p-4
+              gap-2 
+              xl:w-[600px]
+              xl:h-[410px]"
           >
             <PasswordLength 
               passwordLength={passwordLength}
@@ -96,14 +133,32 @@ function App() {
               SetHaveSymbols={setHaveSymbols}
             />
 
-            <button onClick={handleGeneratePassword}>
+            <button onClick={handleGeneratePassword} className="
+              px-4 py-4 bg-[#A4FFAF] rounded-md shadow-md w-full
+              border text-black border-solid hover:border-#A4FFAF
+              hover:text-[#A4FFAF] hover:bg-[#18171F] transition-all duration-300 uppercase font-fontFamily xl:mt-[25px]"
+            >
               Generate
             </button>
           </div>
         </div>
         <div
+          style={{
+            position: 'fixed',
+            width: "10px",
+            height: "10px",
+            borderRadius: '50%',
+            background: 'transparent', 
+            border: '2px solid #A4FFAF',
+            transform: 'translate(-50%, -50%)',
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+            pointerEvents: 'none', 
+            zIndex: 9999, 
+            transition: '0.1s'
+          }}
         ></div>
-      
+      </div>
     </>
   );
 }
