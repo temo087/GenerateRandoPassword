@@ -17,7 +17,7 @@ function App() {
   const [haveUpperCase, setHaveUpperCase] = useState<boolean>(true);
   const [passwordStrength, setPasswordStrength] = useState<string | null>("Generated Password");
 
-  function evaluatePasswordStrength(password) {
+  function evaluatePasswordStrength(password:string) {
     const hasLowerCase = /[a-z]/.test(password);
     const hasUpperCase = /[A-Z]/.test(password);
     const hasNumber = /\d/.test(password);
