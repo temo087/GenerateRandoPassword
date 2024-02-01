@@ -64,7 +64,7 @@ function App() {
         onPointerMove={(e) => {
           setPosition({ x: e.clientX, y: e.clientY });
         }}
-        className='gela'
+        className='kaxa'
         style={{ position: 'relative' }} 
       >
         <div
@@ -101,9 +101,9 @@ function App() {
           }
           <div
             className="
-              dark:bg-white
+              bg-black
               w-[320px]
-              bg-[#24232C]
+              
               dark:bg-#A4FFAF]
               p-4
               gap-2 
